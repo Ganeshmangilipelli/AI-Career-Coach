@@ -109,24 +109,19 @@ The application follows a traditional Retrieval-Augmented Generation pipeline.
 | Environment Management | Python Virtual Environment |
 | Version Control | Git & GitHub |
 | Deployment | Streamlit Community Cloud |
-
 ## 📸 Application Screenshots
 
 ### 1. Application Interface
-
-Upload your resume and job description through the Streamlit interface.
+![Application Interface](screenshots/home.png)
 
 ### 2. RAG Index Creation
-
-The application processes documents, creates chunks, generates embeddings, and stores them in ChromaDB.
+![RAG Index](screenshots/rag-index.png)
 
 ### 3. Career Coach Response
-
-Get personalized career guidance, skill matching, strengths, and missing skills.
+![Career Analysis](screenshots/career-analysis.png)
 
 ### 4. Complete Career Report
-
-Generate a comprehensive report containing match analysis, strengths, missing skills, and improvement recommendations.
+![Complete Career Report](screenshots/career-report.png)
 
 ## 📂 Project Structure
 
