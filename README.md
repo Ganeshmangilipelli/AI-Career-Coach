@@ -1,98 +1,239 @@
-# AI Career Coach using Traditional RAG
+# 🎯 AI Career Coach – Traditional RAG Application
 
-This project is an end-to-end **traditional RAG application** for AI School of India members.
+An AI-powered career coaching application built using **Retrieval-Augmented Generation (RAG)** that analyzes resumes against job descriptions, identifies skill gaps, provides personalized resume improvement suggestions, and generates interview preparation guidance.
 
-It uses:
+<p align="center">
+  <a href="https://ai-career-coach-nfjbk5eb85tua2veucjvvb.streamlit.app/">
+    <strong>🚀 Try Live Application</strong>
+  </a>
+</p>
 
-- LangChain
-- Groq Chat model
-- HuggingFace Embeddings
-- ChromaDB Vector Database
-- Streamlit UI
-- Resume + Job Description analysis
+---
 
-## Features
+## 🌐 Live Demo
 
-- Upload Resume as `.txt`, `.pdf`, or `.docx`
-- Upload Job Description as `.txt`, `.pdf`, or `.docx`
-- Build a RAG index from both documents
-- Retrieve relevant context from Resume and JD
-- Generate:
-  - Resume match summary
-  - Skill gap analysis
-  - Resume improvement suggestions
-  - Project recommendations
-  - Interview preparation questions
+**Application:** https://ai-career-coach-nfjbk5eb85tua2veucjvvb.streamlit.app/
 
-## RAG Stages Covered
+Upload your resume and a job description to receive AI-powered career recommendations.
 
-1. Document Loading
-2. Chunking
-3. Embeddings
-4. Vector Database Storage
-5. Query Embedding
-6. Context Retrieval
-7. LLM Answer Generation
+---
 
-## Setup
+## 📌 Project Overview
 
-### 1. Create virtual environment
+Choosing the right career path and understanding job requirements can be challenging for students and freshers.
+
+This project addresses that problem by using Traditional RAG architecture to analyze two documents:
+
+- Candidate Resume
+- Job Description (JD)
+
+The application retrieves relevant information from both documents and uses a Large Language Model (LLM) to generate context-aware career guidance.
+
+Instead of generating generic suggestions, it uses the uploaded documents as its knowledge base.
+
+## ✨ Key Features
+
+- 📄 **Resume Analysis:** Upload resumes in PDF, DOCX, or TXT format.
+- 💼 **Job Description Analysis:** Upload or paste job descriptions.
+- 🔍 **Skill Gap Analysis:** Identify matching and missing skills.
+- 📊 **ATS-Style Match Analysis:** Get an estimated resume-to-job match score.
+- 📝 **Resume Improvement:** Receive suggestions to improve your resume.
+- 🚀 **Project Recommendations:** Discover projects to strengthen your technical profile.
+- 🎯 **Interview Preparation:** Generate relevant technical interview questions.
+- 🤖 **AI Career Assistant:** Ask custom questions about your career and job requirements.
+- 📑 **Complete Career Report:** Generate a comprehensive career analysis report.
+
+## 🧠 How Traditional RAG Works
+
+The application follows a traditional Retrieval-Augmented Generation pipeline.
+
+### RAG Architecture
+
+1. **Document Loading:** Resume and job description are loaded and converted into LangChain Document objects.
+2. **Text Chunking:** Large documents are divided into smaller chunks using RecursiveCharacterTextSplitter.
+3. **Embeddings Generation:** Hugging Face converts text chunks into numerical vector representations.
+4. **Vector Storage:** Embeddings and document chunks are stored in ChromaDB.
+5. **Query Embedding:** The user's career question is converted into an embedding.
+6. **Similarity Search:** ChromaDB retrieves the most relevant chunks from the uploaded documents.
+7. **LLM Generation:** Groq-powered Llama generates career guidance using the retrieved context.
+
+### RAG Workflow
+
+```text
+        Resume + Job Description
+                   |
+                   v
+           Document Loading
+                   |
+                   v
+             Text Chunking
+                   |
+                   v
+          Hugging Face Embeddings
+                   |
+                   v
+              ChromaDB
+            Vector Storage
+                   |
+                   v
+           User Career Query
+                   |
+                   v
+            Query Embedding
+                   |
+                   v
+           Similarity Search
+                   |
+                   v
+          Retrieved Context
+                   |
+                   v
+             Groq LLM
+                   |
+                   v
+          Career Coach Response
+```
+
+## 🛠️ Technology Stack
+
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Frontend | Streamlit |
+| LLM | Groq – Llama |
+| Framework | LangChain |
+| Embeddings | Hugging Face |
+| Embedding Model | all-MiniLM-L6-v2 |
+| Vector Database | ChromaDB |
+| Document Processing | PyPDF, docx2txt |
+| Environment Management | Python Virtual Environment |
+| Version Control | Git & GitHub |
+| Deployment | Streamlit Community Cloud |
+
+## 📸 Application Screenshots
+
+### 1. Application Interface
+
+Upload your resume and job description through the Streamlit interface.
+
+### 2. RAG Index Creation
+
+The application processes documents, creates chunks, generates embeddings, and stores them in ChromaDB.
+
+### 3. Career Coach Response
+
+Get personalized career guidance, skill matching, strengths, and missing skills.
+
+### 4. Complete Career Report
+
+Generate a comprehensive report containing match analysis, strengths, missing skills, and improvement recommendations.
+
+## 📂 Project Structure
+
+```text
+AI-Career-Coach/
+│
+├── app.py
+│
+├── src/
+│   ├── __init__.py
+│   ├── rag_engine.py
+│   └── file_utils.py
+│
+├── data/
+│   └── Sample Documents
+│
+├── career_coach_chroma_db/
+│
+├── requirements.txt
+│
+├── .env
+│
+├── .gitignore
+│
+└── README.md
+```
+
+## ⚙️ Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Ganeshmangilipelli/AI-Career-Coach.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd AI-Career-Coach
+```
+
+### 3. Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### 2. Activate environment
+### 4. Activate the Virtual Environment
 
-Windows PowerShell:
+**Windows PowerShell:**
 
 ```bash
 venv\Scripts\activate
 ```
 
-Mac/Linux:
-
-```bash
-source venv/bin/activate
-```
-
-### 3. Install requirements
+### 5. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Add Groq API key
+### 6. Configure Groq API Key
 
-Create a `.env` file:
+Create a `.env` file in the root directory.
 
 ```env
-GROQ_API_KEY=your_groq_api_key_here
+GROQ_API_KEY=your_groq_api_key
 ```
 
-### 5. Run app
+Get your API key from: https://console.groq.com/keys
+
+### 7. Run the Application
 
 ```bash
 streamlit run app.py
 ```
 
-## Suggested Teaching Flow
+The application will open in your browser.
 
-1. Show the final app demo.
-2. Explain Resume + JD as the knowledge base.
-3. Explain document loading.
-4. Explain chunking.
-5. Explain embeddings.
-6. Explain ChromaDB storage.
-7. Explain query embedding and similarity search.
-8. Explain LLM generation using retrieved context.
-9. Show retrieved chunks in the UI.
-10. Generate complete career report.
+## 🎯 Example Use Cases
 
-## Sample Files
+- Students preparing for campus placements.
+- Freshers evaluating their resumes against job descriptions.
+- Candidates identifying missing technical skills.
+- Job seekers preparing for technical interviews.
+- Developers planning their next learning steps.
 
-Sample resume and job description are available in the `data/` folder.
+## 🚀 Future Enhancements
 
-## Important Note
+- Integration with multiple LLM providers.
+- Advanced resume parsing and analysis.
+- Support for multiple job descriptions.
+- Downloadable PDF career reports.
+- Conversational career assistant with chat history.
+- Advanced semantic search and retrieval optimization.
+- Integration with job portals and career platforms.
 
-For best compatibility with AI libraries, use Python 3.10, 3.11, or 3.12.
+## 👨‍💻 Author
+
+**Ganesh Mangilipelli**
+
+Aspiring AI Engineer | Generative AI | Machine Learning | RAG Applications
+
+- GitHub: https://github.com/Ganeshmangilipelli
+- Project Repository: https://github.com/Ganeshmangilipelli/AI-Career-Coach
+- Live Application: https://ai-career-coach-nfjbk5eb85tua2veucjvvb.streamlit.app/
+
+---
+
+⭐ If you find this project interesting, consider giving it a star!
