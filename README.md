@@ -111,17 +111,13 @@ The application follows a traditional Retrieval-Augmented Generation pipeline.
 | Deployment | Streamlit Community Cloud |
 ## 📸 Application Screenshots
 
-### 1. Application Interface
 ![Application Interface](screenshots/home.png)
 
-### 2. RAG Index Creation
-![RAG Index](screenshots/rag-index.png)
+![RAG Index](screenshots/rag_index.png)
 
-### 3. Career Coach Response
-![Career Analysis](screenshots/career-analysis.png)
+![Career Analysis](screenshots/career_reponse.png)
 
-### 4. Complete Career Report
-![Complete Career Report](screenshots/career-report.png)
+![Complete Career Report](screenshots/complete_report.png)
 
 ## 📂 Project Structure
 
